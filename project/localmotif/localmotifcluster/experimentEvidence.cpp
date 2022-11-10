@@ -83,21 +83,21 @@ int main(int argc, char *argv[])
   //     Env.GetIfArgPrefixStr("-ss:", "/home/sfy/Documents/VScodeProject/SNAPro/Expriment/testComu.txt", "Input community");
 
   std::ifstream infile("/home/sfy/Documents/VScodeProject/SNAPro/Expriment/testComu.txt");
-  std::string line;
-  std::vector<std::vector<int> > vv; // cheched all right
+  std::vector<std::vector<int> > vv;
 
-  for (std::string line; getline(infile, line);)
+  if (infile.is_open())
   {
-
-    std::vector<int> v;
-    for (size_t i = 0; i < line.size(); i++)
+    for (std::string line; getline(infile, line);)
     {
+      std::vector<int> v;
+
       int f;                      /* declare int */
       std::stringstream ss(line); /* make stringstream from s */
       while ((ss >> f))           /* read ints from ss into f */
         v.push_back(f);           /* add f to vector */
+
+      vv.push_back(v);
     }
-    vv.push_back(v);
   }
 
   // store the whole returned clusters
@@ -106,13 +106,14 @@ int main(int argc, char *argv[])
 
   std::ofstream Myfile;
   Myfile.open("outputComu.txt", std::ios_base::app);
-  std::cout << vv.size() << std::endl;
+  // std::cout << vv.size() << std::endl;
 
   // for (auto v_ : vv)
   for (int i = 0;i < vv.size();i++)
   {
     printf("Size of Comunity: %d.\n", vv.size());
-    printf("Begin community %d", i);
+
+    printf("Begin community %d\n", i);
 
     for (int el = 0;el < vv[i].size(); el ++)
     {
