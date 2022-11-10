@@ -4,8 +4,12 @@
       "name": "C/C++: g++ build and debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/localmotifclustermain",
-      "args": ["-d:Y", "-i:C-elegans-frontal.txt", "-m:FFLoop", "-s:1"],
+      "program": "${fileDirname}/experimentEvidence",
+      "args": [
+        "-d:false",
+        "-i:/home/sfy/Documents/VScodeProject/SNAPro/Expriment/testout.txt",
+        "-m:UEdge"
+      ],
       "stopAtEntry": true,
       "cwd": "${fileDirname}",
       "environment": [],
