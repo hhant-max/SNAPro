@@ -2,7 +2,7 @@
 python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/genGraph.py -g 'planted' -mu 0.2
 
 #######################get detected comms
-cd ./project/localmotif/localmotifcluster
+cd ./project/localmotif/localmotifcluster || exit
 make clean
 make all
 rm -rf outputComu.txt
