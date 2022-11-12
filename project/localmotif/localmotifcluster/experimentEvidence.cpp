@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
   // const TStr seeds_filename =
   //     Env.GetIfArgPrefixStr("-ss:", "/home/sfy/Documents/VScodeProject/SNAPro/Expriment/testComu.txt", "Input community");
 
-  std::ifstream infile("/home/sfy/Documents/VScodeProject/SNAPro/Expriment/testComu.txt");
+  std::ifstream infile("/home/sfy/Documents/VScodeProject/SNAPro/Expriment/TruthComms.txt");
   std::vector<std::vector<int> > vv;
 
   if (infile.is_open())
@@ -109,13 +109,13 @@ int main(int argc, char *argv[])
   // std::cout << vv.size() << std::endl;
 
   // for (auto v_ : vv)
-  for (int i = 0;i < vv.size();i++)
+  for (int i = 0; i < vv.size(); i++)
   {
-    printf("Size of Comunity: %d.\n", vv.size());
+    // printf("Size of Comunity: %d.\n", vv.size());
 
-    printf("Begin community %d\n", i);
+    printf("Begin community %d\n", i + 1);
 
-    for (int el = 0;el < vv[i].size(); el ++)
+    for (int el = 0; el < vv[i].size(); el++)
     {
       MAPPR mappr;
       mappr.computeAPPR(graph_p, vv[i][el], alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
