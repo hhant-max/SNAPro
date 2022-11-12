@@ -1,4 +1,5 @@
-# generate graph
+#!/bin/bash
+####################generate graph
 python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/genGraph.py -g 'planted' -mu 0.2
 
 #######################get detected comms
