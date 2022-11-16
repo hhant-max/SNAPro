@@ -2,8 +2,8 @@
 #	configuration variables for the example
 
 ## Main application file
-MAIN = experimentEvidence
-## MAIN = localmotifclustermain
+# MAIN = experimentEvidence
+MAIN = localmotifclustermain
 DEPH = $(EXSNAPADV)/localmotifcluster.h 
 DEPCPP = $(EXSNAPADV)/localmotifcluster.cpp
 

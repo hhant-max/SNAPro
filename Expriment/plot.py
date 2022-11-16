@@ -4,10 +4,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # create result
-mu = [0.05,0.1,0.5,0.8]
+mu = [0.3,0.4,0.5,0.7,0.8]
 alNamesM = ["MAPPR" for _ in range(10)]
 alNamesA = ["APPR" for _ in range(10)]
-F1scoreM = [0.964743162439931,0.964743162439931,0.964743162439931]
+F1scoreM = [0.9690543190560558,0.3993207861247067,0.33681561366125123,0.33613767820070706,0.3253332962958847]
 F1scoreA = [...]
 figName = "test.png"
 

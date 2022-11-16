@@ -30,7 +30,15 @@ def generate_graph(graph, mu):
         )
 
     if graph == "LFR":
-        G = LFR_benchmark_graph()
+        G = LFR_benchmark_graph(
+            1000,
+            2.5,
+            1.5,
+            0.2,
+            average_degree=20,
+            min_community=20,
+            max_community=50,
+        )
     # TODO: real datasets
 
     print(f"Generated the planted partition graph with size: {len(G)}")
@@ -40,16 +48,25 @@ def generate_graph(graph, mu):
     # one_commu = G_P.graph["partition"][0]
 
 
-def output_graph(G_P, graph):
+def output_graph(G, graph):
     # ouput the graph
     with open("Graph.txt", "wb") as f:
-        nx.write_edgelist(G_P, f, data=False)
+        nx.write_edgelist(G, f, data=False)
 
     # output the
     with open("TruthComms.txt", "w") as f:
         if graph == "planted":
-            for comm in G_P.graph["partition"]:
+            for comm in G.graph["partition"]:
                 f.writelines(" ".join(list(map(lambda x: str(x), comm))))
+                f.write("\n")
+        if graph == "LFR":
+            for node in G:
+                # list(G.nodes[i]["community"])
+                f.writelines(
+                    " ".join(
+                        list(map(lambda x: str(x), list(G.nodes[node]["community"])))
+                    )
+                )
                 f.write("\n")
 
 

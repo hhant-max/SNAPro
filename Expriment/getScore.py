@@ -61,7 +61,7 @@ if __name__ == "__main__":
     # read graound truth commuities
     ground_truth_comm = list(
         open(
-            "/home/sfy/Documents/VScodeProject/SNAPro/Expriment/TruthComms.txt",
+            "/home/sfy/Documents/VScodeProject/SNAPro/TruthComms.txt",
             "r",
         )
         .read()
