@@ -82,6 +82,7 @@ int main(int argc, char *argv[])
   // const TStr seeds_filename =
   //     Env.GetIfArgPrefixStr("-ss:", "/home/sfy/Documents/VScodeProject/SNAPro/Expriment/testComu.txt", "Input community");
 
+  // transfer the true community ine by line into int so that afterwards can deal with thay.lllll
   std::ifstream infile("/home/sfy/Documents/VScodeProject/SNAPro/Expriment/TruthComms.txt");
   std::vector<std::vector<int> > vv;
 
@@ -109,16 +110,19 @@ int main(int argc, char *argv[])
   // std::cout << vv.size() << std::endl;
 
   // for (auto v_ : vv)
-  for (int i = 0; i < vv.size(); i++)
+  for (int comm = 0; comm < vv.size(); comm++)
   {
     // printf("Size of Comunity: %d.\n", vv.size());
 
-    printf("Begin community %d\n", i + 1);
+    printf("Begin community %d\n", comm + 1);
 
-    for (int el = 0; el < vv[i].size(); el++)
+    for (int el = 0; el < vv[comm].size(); el++)
     {
+      int seed = vv[comm][el];
+      // printf("seed:%d.\n",seed);
+
       MAPPR mappr;
-      mappr.computeAPPR(graph_p, vv[i][el], alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
+      mappr.computeAPPR(graph_p, seed, alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
       mappr.sweepAPPR(-1);
       const TIntV cluster = mappr.getCluster();
       // printf("Size of Cluster: %d.\n", cluster.Len());
@@ -130,7 +134,7 @@ int main(int argc, char *argv[])
 
         Myfile << cluster.GetVal(clu) << " ";
 
-        // printf("Cluster: %d.\n", cluster.GetVal(i));
+        // printf("seed: %d. Cluster: %d.\n", seed, cluster.GetVal(clu));
       }
       // finish one seed clusters document
       Myfile << ",";

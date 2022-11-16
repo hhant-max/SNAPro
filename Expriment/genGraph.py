@@ -3,6 +3,7 @@ import networkx as nx
 from networkx.generators.community import (
     LFR_benchmark_graph,
     random_partition_graph,
+    planted_partition_graph,
 )
 from networkx.algorithms import community
 from argparse import ArgumentParser
@@ -21,8 +22,11 @@ def generate_graph(graph, mu):
         p = 0.5
         mu = mu
 
-        G = random_partition_graph(
-            sizes=[n for _ in range(k)], p_in=p, p_out=get_q(mu, p, k), seed=0
+        # G = random_partition_graph(
+        #     sizes=[n for _ in range(k)], p_in=p, p_out=get_q(mu, p, k), seed=0
+        # )
+        G = planted_partition_graph(
+            l=10, k=50, p_in=0.5, p_out=get_q(mu=mu, p=0.5, k=10)
         )
 
     if graph == "LFR":
