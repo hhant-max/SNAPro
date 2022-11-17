@@ -7,7 +7,7 @@
       "program": "${fileDirname}/experimentEvidence",
       "args": [
         "-d:false",
-        "-i:/home/sfy/Documents/VScodeProject/SNAPro/Expriment/Graph.txt",
+        "-i:/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt",
         "-m:UEdge"
       ],
       "stopAtEntry": true,

@@ -99,50 +99,44 @@ int main(int argc, char *argv[])
 
       vv.push_back(v);
     }
-  }
+    std::ofstream Myfile;
+    Myfile.open("outputComu.txt", std::ios_base::app);
+    // std::cout << vv.size() << std::endl;
 
-  // store the whole returned clusters
-  // std::vector<std::vector<int> > wholeClusters;
-  // std::vector<int> clusters;
-
-  std::ofstream Myfile;
-  Myfile.open("outputComu.txt", std::ios_base::app);
-  // std::cout << vv.size() << std::endl;
-
-  // for (auto v_ : vv)
-  for (int comm = 0; comm < vv.size(); comm++)
-  {
-    // printf("Size of Comunity: %d.\n", vv.size());
-
-    printf("Begin community %d\n", comm + 1);
-
-    for (int el = 0; el < vv[comm].size(); el++)
+    // for (auto v_ : vv)
+    for (int comm = 0; comm < vv.size(); comm++)
     {
-      int seed = vv[comm][el];
-      // printf("seed:%d.\n",seed);
+      // printf("Size of Comunity: %d.\n", vv.size());
 
-      MAPPR mappr;
-      mappr.computeAPPR(graph_p, seed, alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
-      mappr.sweepAPPR(-1);
-      const TIntV cluster = mappr.getCluster();
-      // printf("Size of Cluster: %d.\n", cluster.Len());
+      printf("Begin community %d\n", comm + 1);
 
-      ////////////////
-
-      for (int clu = 0; clu < cluster.Len(); clu++)
+      for (int el = 0; el < vv[comm].size(); el++)
       {
+        int seed = vv[comm][el];
+        // printf("seed:%d.\n",seed);
 
-        Myfile << cluster.GetVal(clu) << " ";
+        MAPPR mappr;
+        mappr.computeAPPR(graph_p, seed, alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
+        mappr.sweepAPPR(-1);
+        const TIntV cluster = mappr.getCluster();
+        // printf("Size of Cluster: %d.\n", cluster.Len());
 
-        // printf("seed: %d. Cluster: %d.\n", seed, cluster.GetVal(clu));
+        ////////////////
+
+        for (int clu = 0; clu < cluster.Len(); clu++)
+        {
+
+          Myfile << cluster.GetVal(clu) << " ";
+
+          // printf("seed: %d. Cluster: %d.\n", seed, cluster.GetVal(clu));
+        }
+        // finish one seed clusters document
+        Myfile << ",";
       }
-      // finish one seed clusters document
-      Myfile << ",";
+      // finish one comunity clusters;
+      Myfile << ";";
     }
-    // finish one comunity clusters;
-    Myfile << ";";
   }
-
   Catch
       printf("\nrun time: %s (%s)\n", ExeTm.GetTmStr(),
              TSecTm::GetCurTm().GetTmStr().CStr());

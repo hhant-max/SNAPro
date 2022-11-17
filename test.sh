@@ -1,6 +1,9 @@
 #!/bin/bash
 ####################generate graph
-python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/genGraph.py -g 'planted' -mu 0.5
+# python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/genGraph.py -g 'planted' -mu 0.5
+python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/genGraph.py -g 'LFR' -mu 0.4
+# python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/LFR_graph.txt -g 'LFR' -mu 0.4
+
 
 #######################get detected comms
 cd ./project/localmotif/localmotifcluster || exit

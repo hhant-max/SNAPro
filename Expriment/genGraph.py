@@ -34,8 +34,9 @@ def generate_graph(graph, mu):
             1000,
             2.5,
             1.5,
-            0.2,
+            mu=mu,
             average_degree=20,
+            max_degree= 50,
             min_community=20,
             max_community=50,
         )
@@ -60,13 +61,20 @@ def output_graph(G, graph):
                 f.writelines(" ".join(list(map(lambda x: str(x), comm))))
                 f.write("\n")
         if graph == "LFR":
-            for node in G:
-                # list(G.nodes[i]["community"])
-                f.writelines(
-                    " ".join(
-                        list(map(lambda x: str(x), list(G.nodes[node]["community"])))
-                    )
-                )
+            # for each node
+            # for node in G:
+            #     # list(G.nodes[i]["community"])
+            #     f.writelines(
+            #         " ".join(
+            #             list(map(lambda x: str(x), list(G.nodes[node]["community"])))
+            #         )
+            #     )
+            #     f.write("\n")
+
+            # for all commnities
+            communities = {frozenset(G.nodes[v]["community"]) for v in G}
+            for comm in communities:
+                f.writelines(" ".join(list(map(lambda x: str(x), comm))))
                 f.write("\n")
 
 
