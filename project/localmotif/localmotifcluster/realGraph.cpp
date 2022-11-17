@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
       vv.push_back(v);
     }
     std::ofstream Myfile;
-    Myfile.open("outputCond.txt", std::ios_base::app);
+    Myfile.open("outputComu.txt", std::ios_base::app);
     // std::cout << vv.size() << std::endl;
 
     // for (auto v_ : vv)

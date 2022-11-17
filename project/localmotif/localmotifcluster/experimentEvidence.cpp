@@ -118,6 +118,7 @@ int main(int argc, char *argv[])
         MAPPR mappr;
         mappr.computeAPPR(graph_p, seed, alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
         mappr.sweepAPPR(-1);
+
         const TIntV cluster = mappr.getCluster();
 
         for (int clu = 0; clu < cluster.Len(); clu++)
