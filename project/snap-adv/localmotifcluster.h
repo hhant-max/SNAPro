@@ -182,6 +182,7 @@ class MAPPR {
   TIntV getCluster() { return Cluster; };
   void printAPPR();
   void printProfile();
+  float printCond();
 };
 
 

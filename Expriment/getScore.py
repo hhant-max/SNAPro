@@ -2,11 +2,11 @@ import numpy as np
 import math
 import functools
 
+
 def str2int(strlist):
     strlists = strlist.strip().split(" ")
     ints = list(map(lambda x: int(x), strlists))
     return ints
-
 
 
 def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     # read detected communities from file
     detected_communities = list(
         open(
-            "/home/sfy/Documents/VScodeProject/SNAPro/project/localmotif/localmotifcluster/outputComu.txt",
+            "/home/sfy/Documents/VScodeProject/SNAPro/outputComu.txt",
             "r",
         )
         .read()

@@ -28,6 +28,7 @@ def generate_graph(graph, mu):
         G = planted_partition_graph(
             l=10, k=50, p_in=0.5, p_out=get_q(mu=mu, p=0.5, k=10)
         )
+        return G
 
     if graph == "LFR":
         G = LFR_benchmark_graph(
@@ -36,14 +37,15 @@ def generate_graph(graph, mu):
             1.5,
             mu=mu,
             average_degree=20,
-            max_degree= 50,
+            max_degree=50,
             min_community=20,
             max_community=50,
         )
+        return G
     # TODO: real datasets
 
-    print(f"Generated the planted partition graph with size: {len(G)}")
-    return G
+    # print(f"Generated the planted partition graph with size: {len(G)}")
+
 
     # test the first partion one
     # one_commu = G_P.graph["partition"][0]

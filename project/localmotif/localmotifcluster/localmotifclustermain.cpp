@@ -75,8 +75,8 @@ int main(int argc, char *argv[])
   MAPPR mappr;
   mappr.computeAPPR(graph_p, seed, alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
   mappr.sweepAPPR(-1);
-  mappr.printProfile();
-  printf("Size of Cluster: %d.\n", mappr.getCluster().Len());
+  // mappr.printProfile();
+  printf("Cond:%d.\n", mappr.printCond());
 
   Catch
       printf("\nrun time: %s (%s)\n", ExeTm.GetTmStr(),

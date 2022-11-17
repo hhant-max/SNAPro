@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     {
       // printf("Size of Comunity: %d.\n", vv.size());
 
-      printf("Begin community %d\n", comm + 1);
+      // printf("Begin community %d\n", comm + 1);
 
       for (int el = 0; el < vv[comm].size(); el++)
       {
@@ -119,9 +119,6 @@ int main(int argc, char *argv[])
         mappr.computeAPPR(graph_p, seed, alpha, eps / graph_p.getTotalVolume() * graph_p.getTransformedGraph()->GetNodes());
         mappr.sweepAPPR(-1);
         const TIntV cluster = mappr.getCluster();
-        // printf("Size of Cluster: %d.\n", cluster.Len());
-
-        ////////////////
 
         for (int clu = 0; clu < cluster.Len(); clu++)
         {

@@ -3,14 +3,46 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 
-# create result
-mu = [0.3,0.4,0.5,0.7,0.8]
+# distract result from output
+# result = list(
+#     open(
+#         "/home/sfy/Documents/VScodeProject/SNAPro/output.txt",
+#         "r",
+#     )
+#     .read()
+#     .strip()
+#     .split("Starting mu : 0.1")
+# )
+
+figName = "test.png"
+
+# create result of planted graph # clique3
+mu = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 alNamesM = ["MAPPR" for _ in range(10)]
 alNamesA = ["APPR" for _ in range(10)]
-F1scoreM = [0.9690543190560558,0.3993207861247067,0.33681561366125123,0.33613767820070706,0.3253332962958847]
-F1scoreA = [...]
-figName = "test.png"
-LFR_score = [0.4:0.1342244418895805,0.3:0.6961617061217725]
+PF1scoreA = [
+    0.9690543190560558,
+    0.3993207861247067,
+    0.33681561366125123,
+    0.33613767820070706,
+    0.3253332962958847,
+]
+PF1scoreM = [1.0, 1.0, 0.1, 0.1, 0.958, 0.338, 0.333, 0.220]
+PtimeM = [0.73, 1.3, 1.6, 2.05, 2.12, 2.98, 4.41, 6.72, 11.1]
+PtimeA = []
+
+# create result of LFR # clique3
+PF1scoreA = [
+    0.9690543190560558,
+    0.3993207861247067,
+    0.33681561366125123,
+    0.33613767820070706,
+    0.3253332962958847,
+]
+PF1scoreM = [1.0, 1.0, 0.1, 0.1, 0.958, 0.338, 0.333, 0.220]
+PtimeM = [0.73, 1.3, 1.6, 2.05, 2.12, 2.98, 4.41, 6.72, 11.1]
+PtimeA = []
+
 
 result = {
     "mu": mu,

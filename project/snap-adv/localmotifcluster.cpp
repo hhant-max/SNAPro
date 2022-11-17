@@ -781,3 +781,10 @@ void MAPPR::printProfile() {
     }
   }
 }
+
+float MAPPR::printCond()
+{
+  int i = SizeGlobalMin-1;
+  float cond = MtfCondProfile[i];
+  return cond;
+}

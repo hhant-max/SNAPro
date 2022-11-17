@@ -3,7 +3,8 @@
 
 ## Main application file
 #MAIN = experimentEvidence
-MAIN = localmotifclustermain
+MAIN = realGraph
+#MAIN = localmotifclustermain
 DEPH = $(EXSNAPADV)/localmotifcluster.h 
 DEPCPP = $(EXSNAPADV)/localmotifcluster.cpp
 
