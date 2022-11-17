@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     {
       // printf("Size of Comunity: %d.\n", vv.size());
 
-      // printf("Begin community %d\n", comm + 1);
+      printf("Begin community %d\n", comm + 1);
 
       for (int el = 0; el < vv[comm].size(); el++)
       {
