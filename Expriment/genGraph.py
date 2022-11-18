@@ -42,10 +42,12 @@ def generate_graph(graph, mu):
             max_community=50,
         )
         return G
-    # TODO: real datasets
 
+    # if graph == 'real':
+    #     with open(graph_input,'rb') as file:
+    #         G = nx.read_edgelist(file)
+    #     return G
     # print(f"Generated the planted partition graph with size: {len(G)}")
-
 
     # test the first partion one
     # one_commu = G_P.graph["partition"][0]
@@ -90,15 +92,16 @@ if __name__ == "__main__":
     """
     parser = ArgumentParser(prog="genGraph", description=description, epilog=epilog)
 
-    # TODO: add real world datasets here
     parser.add_argument(
-        "-g", metavar="graph name or dataset name", choices=["planted", "LFR"]
+        "-g", metavar="graph name or dataset name", choices=["planted", "LFR", "real"]
     )
-    parser.add_argument("-mu", metavar="mu in planted graph", type=float)
+    parser.add_argument("-mu", metavar="mu in planted graph", default=None, type=float)
+    # parser.add_argument("-i", metavar="input of real graph",default=None, type=str)
 
     args = parser.parse_args()
     graph = args.g
     mu = args.mu
+    # graph_input = args.i
 
     #####################Generate graph############
 

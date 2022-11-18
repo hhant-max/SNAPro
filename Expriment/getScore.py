@@ -8,6 +8,12 @@ def str2float(strlist):
     ints = list(map(lambda x: float(x), strlists))
     return ints
 
+def str2int(strlist):
+    # for ground truth in real dataset
+    strlists = strlist.strip().split("\t")
+    ints = list(map(lambda x: int(x), strlists))
+    return ints
+
 
 def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
     """
@@ -23,7 +29,7 @@ def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
     conduc = detected_comm[0]
 
     detected = detected_comm[1:]
-    ground_truth_comm = str2float(ground_truth_comm)
+    ground_truth_comm = str2int(ground_truth_comm)
     correctly_classified = list(set(detected).intersection(set(ground_truth_comm)))
     precision = len(correctly_classified) / float(len((detected)))
     recall = len(correctly_classified) / float(len(ground_truth_comm))
@@ -63,17 +69,26 @@ if __name__ == "__main__":
     # singleFscore = cal_Fscore(detected_comm= detected_comm,ground_truth_comm=one_commu)
 
     # read graound truth commuities
+    # sysetic graph
+    # ground_truth_comm = list(
+    #     open(
+    #         "/home/sfy/Documents/VScodeProject/SNAPro/TruthComms.txt",
+    #         "r",
+    #     )
+    #     .read()
+    #     .strip()
+    #     .split("\n")
+    # )
     ground_truth_comm = list(
         open(
             "/home/sfy/Documents/VScodeProject/SNAPro/TruthComms.txt",
             "r",
         )
-        .read()
-        .strip()
-        .split("\n")
+        .readlines()
     )
 
     # read detected communities from file
+    
     detected_communities = list(
         open(
             "/home/sfy/Documents/VScodeProject/SNAPro/outputComu.txt",
@@ -82,7 +97,8 @@ if __name__ == "__main__":
         .read()
         .strip()
         .split(";")
-    )
+    )   
+
 
     statistics = []
     for index, communities in enumerate(detected_communities[:-1]):

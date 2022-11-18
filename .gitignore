@@ -1,6 +1,8 @@
 
 ###others 
 *.txt
+dataset
+Expriment/test.ipynb
 ###########c++
 # Prerequisites
 *.d

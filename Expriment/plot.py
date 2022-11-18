@@ -20,6 +20,7 @@ figName = "test.png"
 mu = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 alNamesM = ["MAPPR" for _ in range(10)]
 alNamesA = ["APPR" for _ in range(10)]
+
 PF1scoreA = [
     0.9690543190560558,
     0.3993207861247067,
