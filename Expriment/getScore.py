@@ -2,11 +2,11 @@ import numpy as np
 import math
 import functools
 
+
 def str2float(strlist):
     strlists = strlist.strip().split(" ")
     ints = list(map(lambda x: float(x), strlists))
     return ints
-
 
 
 def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
@@ -21,11 +21,11 @@ def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
     # input detected_comm = '0 3 4 2 6 ... ' transfer first
     detected_comm = str2float(detected_comm)
     conduc = detected_comm[0]
-    
-    detected_comm = detected_comm[1:]
+
+    detected = detected_comm[1:]
     ground_truth_comm = str2float(ground_truth_comm)
-    correctly_classified = list(set(detected_comm).intersection(set(ground_truth_comm)))
-    precision = len(correctly_classified) / float(len((detected_comm)))
+    correctly_classified = list(set(detected).intersection(set(ground_truth_comm)))
+    precision = len(correctly_classified) / float(len((detected)))
     recall = len(correctly_classified) / float(len(ground_truth_comm))
     if precision != 0 and recall != 0:
         Fscore = (
@@ -39,7 +39,7 @@ def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
         Fscore = 0
 
     # return [fscore,precision,recall,conduct]
-    return [Fscore,precision,recall,conduc]
+    return [Fscore, precision, recall, conduc]
 
 
 def cal_Jaccard(detected_comm, ground_truth_comm):
@@ -96,9 +96,23 @@ if __name__ == "__main__":
                 comms_seed,
             )
         )
-        statistics.append(res)
+        ress = np.array(res).reshape((len(res), 4))
+        # res: Fscore,precision,recall,conduc ->[0.3367003367003367, 0.20242914979757085, 1.0, 0.371495]
+        # cal score
+        max_Fscore_index = np.argmax(ress[:, 0])
 
+        statistics.append(ress[max_Fscore_index])
+
+    result = np.average(statistics, axis=0)
     # mean_best = np.average(statistics) / len()
-    mean_best = np.average(list(map(np.max, statistics)))
+    # statistics = np.array(statistics)
+    # # max_Fscore_index = list(map(np.argmax, statistics[:,:,0]))
+    # f = statistics[:,:,0]
+    # # max_Fscore_index = np.argmax(statistics[:,:,0])
 
-    print(mean_best)
+    # results = [stat[index] for index,stat in zip(max_Fscore_index,statistics)]
+
+    # result = np.average(results,axis=0)
+    print(
+        f"Fscore:{result[0]:.3f}, Precision:{result[1]:.3f}, Recall:{result[2]:.3f}, Conductance:{result[3]:.3f}"
+    )
