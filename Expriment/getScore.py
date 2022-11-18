@@ -2,11 +2,11 @@ import numpy as np
 import math
 import functools
 
-
-def str2int(strlist):
+def str2float(strlist):
     strlists = strlist.strip().split(" ")
-    ints = list(map(lambda x: int(x), strlists))
+    ints = list(map(lambda x: float(x), strlists))
     return ints
+
 
 
 def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
@@ -19,8 +19,11 @@ def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
     F_beta = (1+beta^2) / beta^2 * (precision(S)*recall(S)) / (precision(S)+recall(S))
     """
     # input detected_comm = '0 3 4 2 6 ... ' transfer first
-    detected_comm = str2int(detected_comm)
-    ground_truth_comm = str2int(ground_truth_comm)
+    detected_comm = str2float(detected_comm)
+    conduc = detected_comm[0]
+    
+    detected_comm = detected_comm[1:]
+    ground_truth_comm = str2float(ground_truth_comm)
     correctly_classified = list(set(detected_comm).intersection(set(ground_truth_comm)))
     precision = len(correctly_classified) / float(len((detected_comm)))
     recall = len(correctly_classified) / float(len(ground_truth_comm))
@@ -35,7 +38,8 @@ def cal_Fscore(detected_comm, ground_truth_comm, beta=1):
     else:
         Fscore = 0
 
-    return Fscore
+    # return [fscore,precision,recall,conduct]
+    return [Fscore,precision,recall,conduc]
 
 
 def cal_Jaccard(detected_comm, ground_truth_comm):
@@ -80,11 +84,11 @@ if __name__ == "__main__":
         .split(";")
     )
 
-    scoress = []
+    statistics = []
     for index, communities in enumerate(detected_communities[:-1]):
         comms_seed = communities.strip().split(",")[:-1]
         # print(comms_seed)
-        scores = list(
+        res = list(
             map(
                 functools.partial(
                     cal_Fscore, ground_truth_comm=ground_truth_comm[index], beta=1
@@ -92,9 +96,9 @@ if __name__ == "__main__":
                 comms_seed,
             )
         )
-        scoress.append(scores)
+        statistics.append(res)
 
-    # mean_best = np.average(scoress) / len()
-    mean_best = np.average(list(map(np.max, scoress)))
+    # mean_best = np.average(statistics) / len()
+    mean_best = np.average(list(map(np.max, statistics)))
 
     print(mean_best)
