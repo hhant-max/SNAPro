@@ -12,9 +12,9 @@ import time
 
 print("Load Amazon data...")
 adj_matrix = load_graph(
-    "/home/sfy/Documents/testSNA/SNAPro/dataset/com-amazon.ungraph.txt"
+    "/data/s3134644/SNAPro/dataset/com-amazon.ungraph.txt"
 )
-groundtruth = load_groundtruth("/home/sfy/Documents/testSNA/SNAPro/multicom/TruthComms.txt")
+groundtruth = load_groundtruth("/data/s3134644/SNAPro/TruthComms.txt")
 
 print("Filter the nodes with degree 0")
 degree = np.array(np.sum(adj_matrix, axis=0))[0]
