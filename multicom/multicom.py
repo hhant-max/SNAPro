@@ -69,7 +69,10 @@ def approximate_ppr(adj_matrix, seed_set, alpha=0.85, epsilon=1e-5):
 
     prob = np.zeros(n_nodes)
     res = np.zeros(n_nodes)
-    res[list(seed_set)] = 1. / len(seed_set)
+    try:
+        res[list(seed_set)] = 1. / len(seed_set)
+    except IndexError:
+        pass
 
     next_nodes = deque(seed_set)
 
