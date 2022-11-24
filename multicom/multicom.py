@@ -226,7 +226,7 @@ def multicom(adj_matrix, seed_node, scoring, cut, clustering=DBSCAN(), n_steps=5
                 candidate_degrees = np.array([degree[node] for node in candidates])
                 new_seeds.append(candidates[np.argmax(candidate_degrees)])
 
-    print ("Number of iterations %i" % n_iter)
+    # print ("Number of iterations %i" % n_iter)
 
     return seeds.values(), communities
 
