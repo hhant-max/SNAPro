@@ -12,11 +12,12 @@ import time
 
 print("Load Amazon data...")
 adj_matrix = load_graph(
-    "/home/sfy/Documents/testSNA/SNAPro/dataset/com-amazon.ungraph.txt"
+    "/data/s3134644/SNAPro/dataset/com-amazon.ungraph.txt"
 )
-groundtruth = load_groundtruth("/home/sfy/Documents/testSNA/SNAPro/dataset/A-comms.txt")
+# groundtruth = load_groundtruth("/data/s3134644/TruthComms.txt")
+groundtruth = load_groundtruth("/data/s3134644/TruthComms.txt")
 
-print("Filter the nodes with degree 0")
+# print("Filter the nodes with degree 0")
 degree = np.array(np.sum(adj_matrix, axis=0))[0]
 new_adj_matrix, new_groundtruth, node_map = extract_subgraph(
     adj_matrix, groundtruth, np.where(degree > 0)[0]
@@ -25,7 +26,7 @@ number_nodes = new_adj_matrix.shape[0]
 scoring = lambda adj_matrix, seed_set: approximate_ppr(
             adj_matrix, seed_set, alpha=0.5, epsilon=1e-3
         )
-print("Apply MULTICOM on seed node 0")
+# print("Apply MULTICOM on seed node 0")
 start = time.time()
 # for each node in community
 scores_comm = list()

@@ -1,5 +1,5 @@
 #!/bin/bash
-/home/sfy/miniconda3/envs/sna/bin/python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/get100Comms.py -i /home/sfy/Documents/VScodeProject/SNAPro/dataset/com-lj.all.cmty.txt
+python3 /data/s3134644/SNAPro/Expriment/get300Comms.py -i /data/s3134644/SNAPro/dataset/com-amazon.all.dedup.cmty.txt
 
 rm -rf outputComu.txt
 
