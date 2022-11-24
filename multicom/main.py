@@ -14,7 +14,7 @@ print("Load Amazon data...")
 adj_matrix = load_graph(
     "/home/sfy/Documents/testSNA/SNAPro/dataset/com-amazon.ungraph.txt"
 )
-groundtruth = load_groundtruth("/home/sfy/Documents/testSNA/SNAPro/dataset/A-comms.txt")
+groundtruth = load_groundtruth("/home/sfy/Documents/testSNA/SNAPro/multicom/TruthComms.txt")
 
 print("Filter the nodes with degree 0")
 degree = np.array(np.sum(adj_matrix, axis=0))[0]
@@ -29,11 +29,11 @@ print("Apply MULTICOM on seed node 0")
 start = time.time()
 # for each node in community
 scores_comm = list()
-for index_c,comm in enumerate(groundtruth):
+for index_c,comm in enumerate(new_groundtruth):
     print(f'community {index_c +1}')
     scores_nodes = list()
     for node in comm:
-        if node >= number_nodes: continue
+        # if node >= number_nodes: continue
         seeds, communities = multicom(
             new_adj_matrix,
             node,
@@ -41,10 +41,10 @@ for index_c,comm in enumerate(groundtruth):
             conductance_sweep_cut,
             explored_ratio=0.9,
         )
-        scores_nodes.append(np.max(compute_f1_scores(communities, new_groundtruth)))
-    scores_comm.append(scores_nodes)
+        scores_nodes.append(np.mean(compute_f1_scores(communities, new_groundtruth)))
+    scores_comm.append(np.max(scores_nodes))
 
 
 print("Compute the average F1-Score for detected communities")
-print(f' time spend is {time.time()-start}')
+print(f' time spend is {(time.time()-start)/60}')
 print(np.mean(scores_comm))
