@@ -1,0 +1,99 @@
+ ----------------Starting mu : 0.1
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:09:17 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 05m05s (20:14:22)
+1.0
+----------------Starting mu : 0.2
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:14:23 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 05m28s (20:19:52)
+0.9844119394681837
+----------------Starting mu : 0.3
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:19:53 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 05m28s (20:25:21)
+0.7265917726850966
+----------------Starting mu : 0.4
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:25:22 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 05m44s (20:31:07)
+0.1415026026189437
+----------------Starting mu : 0.5
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:31:08 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 05m56s (20:37:05)
+0.12217480857411912
+----------------Starting mu : 0.6
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:37:06 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 06m03s (20:43:09)
+0.11614675692176156
+----------------Starting mu : 0.7
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:43:11 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 06m39s (20:49:51)
+0.09453732965578841
+----------------Starting mu : 0.8
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:49:52 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 05m53s (20:55:45)
+0.07797017876522996
+----------------Starting mu : 0.9
+Local motif clustering. build: 20:08:47, Nov 17 2022. Time: 20:55:46 [Nov 16 2022]
+==================================================================================
+Directed graph? (-d:)=No
+Input graph file (-i:)=/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt
+Motif type (-m:)=UEdge
+alpha (-a:)=0.98
+eps (-e:)=0.0001
+
+run time: 05m50s (21:01:37)
+0.08218628469221753

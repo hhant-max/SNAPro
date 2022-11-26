@@ -12,7 +12,7 @@ args = parser.parse_args()
 # get os.getcwd() -> SNAPRO
 
 with open(args.i, "r") as myfile:
-    head = list(islice(myfile, 3))
+    head = list(islice(myfile, 300))
 
 # always remember, use files in a with statement
 with open(os.path.join(os.getcwd(), "TruthComms.txt"), "w") as f2:
