@@ -8,3 +8,8 @@ rm -rf outputComu.txt
 /home/sfy/miniconda3/envs/sna/bin/python /home/sfy/Documents/VScodeProject/SNAPro/Expriment/getScore.py
 
 /Users/sunfeiyang/miniconda3/envs/sna/bin/python
+
+# for server
+/data/s3134644/SNAPro/project/localmotif/localmotifcluster/realGraph -d:false -i:/data/s3134644/SNAPro/dataset/com-lj.ungraph.txt -m:UEdge
+
+python /data/s3134644/SNAPro/Expriment/getScore.py

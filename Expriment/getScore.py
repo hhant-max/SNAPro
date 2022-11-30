@@ -81,7 +81,7 @@ if __name__ == "__main__":
     # )
     ground_truth_comm = list(
         open(
-            "/home/sfy/Documents/VScodeProject/SNAPro/TruthComms.txt",
+            "/data/s3134644/SNAPro/TruLocal.txt",
             "r",
         )
         .readlines()
@@ -91,7 +91,7 @@ if __name__ == "__main__":
     
     detected_communities = list(
         open(
-            "/home/sfy/Documents/VScodeProject/SNAPro/outputComu.txt",
+            "/data/s3134644/SNAPro/outputComu.txt",
             "r",
         )
         .read()

@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
   Try
 
       const bool IsDirected =
-          Env.GetIfArgPrefixBool("-d:", false, "Directed graph?");
+          Env.GetIfArgPrefixBool("-d:", true, "Directed graph?");
 
   ProcessedGraph graph_p;
   if (IsDirected)
