@@ -15,6 +15,8 @@ with open(args.i, "r") as myfile:
     head = list(islice(myfile, 300))
 
 # always remember, use files in a with statement
-with open(os.path.join(os.getcwd(), "TruthComms.txt"), "w") as f2:
+with open(os.path.join(os.getcwd(), "TruLocal.txt"), "w") as f2:
     for item in head:
         f2.write(item)
+
+# 
