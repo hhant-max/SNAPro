@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
   //     Env.GetIfArgPrefixStr("-ss:", "/home/sfy/Documents/VScodeProject/SNAPro/Expriment/testComu.txt", "Input community");
 
   // transfer the true community ine by line into int so that afterwards can deal with thay.lllll
-  std::ifstream infile("/home/sfy/Documents/VScodeProject/SNAPro/TruthComms.txt");
+  std::ifstream infile("/data/s3134644/SNAPro/TruLocal.txt");
   std::vector<std::vector<int> > vv;
 
   if (infile.is_open())
