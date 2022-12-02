@@ -4,11 +4,11 @@
       "name": "C/C++: g++ build and debug active file",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${fileDirname}/experimentEvidence",
+      "program": "${fileDirname}/realGraph",
       "args": [
-        "-d:false",
-        "-i:/home/sfy/Documents/VScodeProject/SNAPro/Graph.txt",
-        "-m:UEdge"
+        "-d:true",
+        "-i:/home/sfy/Documents/testSNA/SNAPro/dataset/wiki-topcats.txt",
+        "-m:Edge"
       ],
       "stopAtEntry": true,
       "cwd": "${fileDirname}",
