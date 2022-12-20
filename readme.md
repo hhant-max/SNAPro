@@ -1,4 +1,4 @@
-#Local high-order clustering 
+# Local high-order clustering 
 
 - local clustering detection algorithm in /project/localmotif/localmotif/realGraph.cpp
 - Another algorithms in multicom and Hosim folder.
